@@ -18,6 +18,6 @@ This repo aims at realizing three AI enhancements in order to improve accuracy a
 * AI enhanced weak signal mining -> WSM.ipynb
 * LLM interpreted Weak Signals -> wsm_interpreter.ipynb
 
-## Tasks and tools
+## To Do
 * make different time units digestable
 
