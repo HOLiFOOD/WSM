@@ -62,4 +62,4 @@ Contributions are welcome: add cases, improve scoring, or extend the notebook.
 
 ## 📄 License
 
-MIT License
+CC BY 4.0 for methodology, MIT for code components
