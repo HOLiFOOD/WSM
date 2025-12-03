@@ -5,54 +5,81 @@ WSM (Weak Signal Miner) is a full end-to-end framework for **detecting, scoring,
 
 ---
 
-## 🔍 Key Features
-### 1. Micro Topic Modeling with BERTopic (https://maartengr.github.io/BERTopic)
-- BERTopic with configurable UMAP + HDBSCAN parameters  
-- Designed to avoid over-segmentation  
+## 📊 Workflow Overview
+WSM follows a structured pipeline that transforms raw scientific text into ranked weak signals of emerging risk. The process integrates micro-topic modelling, temporal normalisation, emergence scoring, and final weak-signal selection.
 
+### 1. Micro Topic Modeling
+WSM identifies fine-grained thematic units (“micro-topics”) using BERTopic (https://maartengr.github.io/BERTopic)
+´´´
+Raw Documents
+      ↓
+Sentence Transformer (embeddings)
+      ↓
+UMAP (dimensionality reduction)
+      ↓
+HDBSCAN (density-based clustering)
+      ↓
+Micro-Topics with representative terms
+´´´
 ### 2. Temporal Bucketing & Normalization
-- Flexible time-bucket assignment (monthly, weekly, yearly)  
-- Normalization for comparability across topics  
-- Produces interpretable trend curves  
+Each document retains its publication date and is mapped to a temporal bucket (daily, weekly, monthly, etc.). The system automatically selects the finest granularity with sufficient data density.
+´´´
+Micro-Topics + Dates
+      ↓
+Automatic (or forced) bucket selection
+      ↓
+Assign documents to time buckets
+      ↓
+Count topic occurrences per bucket (nₖ,ₜ)
+      ↓
+Compute topic shares per bucket
+      ↓
+Topic-by-time dataframe
+´´´
+Using shares instead of raw counts ensures robustness to fluctuations in overall publication volume.
 
 ### 3. Topic Emergence Scoring
-A core methodological component:
-- Exponential recency weighting  
-- Magnitude-based jump detection  
-- Suddenness emphasis through relative change scoring  
+Emergence is detected through a combination of recency (persistence in recent buckets) and magnitude (sudden short-term increase):
+
+´´´
+Topic-by-time dataframe
+      ↓
+Exponential recency weighting (half-life h)
+      ↓
+Recency score (recent sustained attention)
+      ↓
+Magnitude score (positive jump in last interval)
+      ↓
+Normalize both components to [0,1]
+      ↓
+Final topic emergence score
+´´´
+This scoring highlights topics that are both currently active and accelerating.
 
 ### 4. Top-k Weak Signal Ranking
-- Hard filtering by count bounds  
-- Score thresholding  
-- Even distribution across allowed count range  
-- Returns top‑K weak signals  
+Finally, topics are filtered and ranked to identify the most relevant weak signals: 
+´´´
+Topics + emergence scores
+      ↓
+Count bounds & score threshold
+      ↓
+Sort by emergence score via "round robin method"
+      ↓
+Select Top-K weak signals
+´´´
+These weak signals represent early indicators of emerging scientific developments that merit further expert analysis.
 
-### 6. LLM Weak Signal Interpreter (coming soon)
-- LangChain + OpenAI-based  
+### 6. LLM Weak Signal Interpreter
+- LangChain + OpenAI OR Gemini 
 - Generates:
+  - Topic label
   - Novelty score  
   - Severity score  
-  - Narrative explanation  
-- Appended directly to weak signal dataframe  
+  - Novelty reasoning
+  - Severity reasoning
+- Appended to weak signal dataframe
 
 ---
-
-## 📊 Workflows (ASCII)
-
-### Temporal Bucketing
-```
-Raw Docs → Assign Time Buckets → Topic Counts → Normalization
-```
-
-### Recency-and-Magnitude Scoring
-```
-Topic Frequencies → Recency Weights → Magnitude Change → Final Score
-```
-
-### Weak Signal Ranking
-```
-Filter by Count → Score Threshold → Sort → Top-K Weak Signals
-```
 
 ## 🤝 Contributing
 
