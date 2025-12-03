@@ -1,0 +1,11 @@
+Name,Count,score,weak_signal_score,Representation
+213_citrus_juice_marinated_sensory,11,0.4014073627737162,0.7222222222222222,"['citrus', 'juice', 'marinated', 'sensory', 'marinade', 'marinating', 'meat', 'marination', 'beo', 'rhubarb']"
+181_sers_imprinted_qcm_spr,13,0.40135042900077245,0.6109693593430994,"['sers', 'imprinted', 'qcm', 'spr', 'ecl', 'cap', 'cofaiecl', 'aptasensor', 'signal', 'detection']"
+291_hets_alsub2subosub3sub_cuonps_nanosilver,8,0.27384210538199294,0.5712812574743316,"['hets', 'alsub2subosub3sub', 'cuonps', 'nanosilver', 'extracellular', 'nanosilverinduced', 'nets', 'formation', 'nanocu', 'release']"
+382_haploid_dh_colchicine_hmf,6,0.20058876173903162,0.5000086894917406,"['haploid', 'dh', 'colchicine', 'hmf', 'doubling', 'landrace', 'capture', 'hff', 'haploids', 'ptx']"
+347_dandelion_broth_uvbinduced_fermentation,7,0.21757769172917057,0.48675159297402854,"['dandelion', 'broth', 'uvbinduced', 'fermentation', 'skin', 'skincare', 'masks', 'ingredients', 'hacat', 'irritation']"
+245_grain_dp51291_95275_dp915635,10,0.2833398183795533,0.48381722857579573,"['grain', 'dp51291', '95275', 'dp915635', 'diets', 'nontransgenic', 'containing', 'rats', 'pathology', 'fed']"
+260_bps_mbp_extraction_canned,9,0.20082175021313378,0.3339221095894447,"['bps', 'mbp', 'extraction', 'canned', 'dese', 'hre', 'dess', 'uae', 'ethanol', 'solvents']"
+164_lncrnas_de_flhs_poly,14,0.28995532499279725,0.27806606931382494,"['lncrnas', 'de', 'flhs', 'poly', 'fatty', 'mrnas', 'f1', 'h3k27ac', 'hens', 'f0']"
+159_rhizosphere_2a5_2a7_transgenic,15,0.2817047729292975,0.2019685703456999,"['rhizosphere', '2a5', '2a7', 'transgenic', 'hemoglobin', 'stages', 'diversity', 'bt', 'mcry1ab', 'z58']"
+197_za_solid_bac_144,12,0.20775107612907867,0.1845078424903546,"['za', 'solid', 'bac', '144', 'agents', 'black5', 'sn', 'diphenyl', 'ether', 'lactofen']"
